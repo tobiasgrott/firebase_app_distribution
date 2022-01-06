@@ -60,4 +60,4 @@ jobs:
           firebaseServiceAccount: "${{secrets.FIREBASE_SERVICE_ACCOUNT_FB_APP_DISTRIBUTION}}"
           channelId: live
         env: 
-          FIREBASE_CLI_PREVIES: hostingchannels
+          FIREBASE_CLI_PREVIEWS: hostingchannels

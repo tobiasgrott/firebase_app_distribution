@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Cache Flutter dependencies
-        uses: actions/setup-cache@v1
+        uses: actions/cache@v1
         with:
           path: /opt/hostedtoolcache/flutter
           key: ubuntu-flutter

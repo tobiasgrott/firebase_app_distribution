@@ -15,6 +15,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Cache Flutter dependencies
+        uses: actions/setup-cache@v1
+        with:
+          path: /opt/hostedtoolcache/flutter
+          key: ubuntu-flutter
+
       - name: Install Java
         uses: actions/setup-java@v1
         with:

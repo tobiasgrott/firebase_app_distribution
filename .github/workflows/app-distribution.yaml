@@ -32,6 +32,7 @@ jobs:
           flutter-version: 2.8.1
 
       - run: flutter pub get
+      - run: flutter pub run build_runner build
       #- run: flutter format --set-exit-if-changed .
       - run: flutter analyze .
       - run: flutter test
@@ -50,3 +51,13 @@ jobs:
           token: ${{secrets.FIREBASE_TOKEN}}
           groups: testers
           file: build/app/outputs/apk/release/app-release.apk
+
+      # Build Web
+      - run: flutter build web --release
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: "${{secrets.FITHUB_TOKEN}}"
+          firebaseServiceAccount: "${{secrets.FIREBASE_SERVICE_ACCOUNT_MY_PROJECT_ID}}"
+          projectId: MY_PROJECT_ID
+        env: 
+          FIREBASE_CLI_PREVIES: hostingchannels
